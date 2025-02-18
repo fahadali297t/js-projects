@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;       
+    font-family: "Poppins", serif;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: burlywood;
+    padding: 10px;
+
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buttons .btn{
+    padding: 10px 30px;
+    border: 1px transparent solid;
+    border-radius: 20px;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+
+}
+.buttons .btn:hover{
+    cursor: pointer;
+    background-color:  aliceblue;
+    border: 1px solid black;
+}
+/* modal window */
+
+.modal_window{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.hidden{
+    display: none;
+}
+.modal_window button{
+    width: 50px;
+    font-size: 40px;
+    border: none;
+}
+.modal_window button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
