@@ -2,7 +2,6 @@
 
 let num = document.querySelector('.number');
 let score_element = document.querySelector('.score');
-let highScore = document.querySelector('.highscore');
 let message = document.querySelector('.message');
 let score = Number(score_element.textContent);
 let correctNumber = Math.floor(Math.random() * 20 + 1);
