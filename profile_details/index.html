@@ -16,104 +16,133 @@
   <body>
     <!--  -->
     <div class="wrapper">
-      <!-- Button trigger modal -->
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button>
+      <!-- popup data collector -->
+      <div class="popup">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Launch demo modal
+        </button>
 
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Add New User
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form class="row g-3">
-                <div class="col-md-6">
-                  <label for="first_name" class="form-label">First Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="first_name"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label for="lastName" class="form-label">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastName"
-                    required
-                  />
-                </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Add New User
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="row g-3">
+                  <div class="col-md-6">
+                    <label for="first_name" class="form-label"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="first_name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      required
+                    />
+                  </div>
 
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputCity"
-                    required
-                  />
-                </div>
+                  <div class="col-md-6">
+                    <label for="inputCity" class="form-label">City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputCity"
+                      required
+                    />
+                  </div>
 
-                <div class="col-md-6">
-                  <label for="inputZip" class="form-label">Phone Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputZip"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="formFileSm" class="form-label"
-                    >Please Select Profile Picture</label
-                  >
-                  <input
-                    class="form-control form-control-sm"
-                    id="formFileSm"
-                    type="file"
-                  />
-                </div>
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputZip"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFileSm" class="form-label"
+                      >Please Select Profile Picture</label
+                    >
+                    <input
+                      class="form-control form-control-sm"
+                      id="formFileSm"
+                      type="file"
+                    />
+                  </div>
 
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="submit" class="btn btn-primary">
-                    Save Changes
-                  </button>
-                </div>
-              </form>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                      Save Changes
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Data list -->
+      <div class="data_list">
+        <table class="table table-hover">
+          <thead>
+            <th>Profile Picture</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>City</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="./pic.avif" alt="profile_pic" /></td>
+              <td>Fahad</td>
+              <td>Ali</td>
+              <td>03326067339</td>
+              <td>Kotmomin</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
