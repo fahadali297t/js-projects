@@ -12,63 +12,44 @@ const newRow3 = document.createElement("div");
 newRow3.classList.add("row", "row3");
 container.appendChild(newRow3);
 
-disp.textContent = 0;
-let arr = [];
+const newRow4 = document.createElement("div");
+newRow4.classList.add("row", "row4");
+container.appendChild(newRow4);
 
+const newRow5 = document.createElement("div");
+newRow5.classList.add("row", "row5");
+container.appendChild(newRow5);
 
-function btn1(str) {
+let string = "";
+disp.textContent = string;
+
+function createButton(val, row) {
   const newBtn = document.createElement("button");
-  let val = Number(str);
-
   newBtn.textContent = val;
   newBtn.classList.add("btn");
 
-  newRow1.appendChild(newBtn);
-  newBtn.addEventListener("click", (e) => {
-    
-    arr.push(val);
-    disp.textContent = arr.map(num => num).join('');
+  row.appendChild(newBtn);
 
-  });
-}
-function btn2(str) {
-  const newBtn = document.createElement("button");
-  let val = Number(str);
-
-  newBtn.textContent = val;
-  newBtn.classList.add("btn");
-
-  newRow2.appendChild(newBtn);
-
-  newBtn.addEventListener("click", (e) => {
-    console.log(val);
-    disp.textContent = val;
-  });
-}
-function btn3(str) {
-  const newBtn = document.createElement("button");
-  let val = Number(str);
-  newBtn.textContent = val;
-  newBtn.classList.add("btn");
-
-  newRow3.appendChild(newBtn);
-
-  newBtn.addEventListener("click", (e) => {
-    console.log(val);
-    disp.textContent = val;
+  newBtn.addEventListener("click", () => {
+    if (val === "=") {
+      string = eval(string).toString();
+      disp.textContent = string;
+    } else if (val === "C") {
+      string = "";
+      disp.textContent = string;
+    } else {
+      string += val;
+      disp.textContent = string;
+    }
   });
 }
 
-btn1("7");
-btn1("8");
-btn1("9");
+createRowButtons(newRow1, ["7", "8", "9", "*"]);
+createRowButtons(newRow2, ["4", "5", "6", "/"]);
+createRowButtons(newRow3, ["1", "2", "3", "+"]);
+createRowButtons(newRow4, ["0", ".", "C", "-"]);
+createRowButtons(newRow5, ["="]);
 
-btn2("4");
-btn2("5");
-btn2("6");
-
-btn3("1");
-btn3("2");
-btn3("3");
-
-console.log(container);
+function createRowButtons(row, buttons) {
+  buttons.forEach((val) => createButton(val, row));
+}
