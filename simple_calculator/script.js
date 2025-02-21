@@ -1,4 +1,4 @@
-const btn = document.querySelectorAll(".btn");
+/*const btn = document.querySelectorAll(".btn");
 const disp = document.querySelector(".display");
 let string = "";
 
@@ -16,6 +16,26 @@ arrayBtn.forEach((btn) => {
       disp.textContent = string;
     } else {
       string += e.target.innerHTML;
+      disp.textContent = string;
+    }
+  });
+});
+*/
+
+const btn = document.querySelectorAll(".btn");
+const disp = document.querySelector(".display");
+let string = "";
+
+btn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.innerHTML === "C") {
+      string = "";
+      disp.textContent = string;
+    } else if (btn.innerHTML === "=") {
+      string = eval(string);
+      disp.textContent = string;
+    } else {
+      string += btn.innerHTML;
       disp.textContent = string;
     }
   });
