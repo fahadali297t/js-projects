@@ -36,10 +36,7 @@ getData().then((data) => {
       height: element.height,
       weight: element.weight,
       eyeColor: element.eyeColor,
-      hair: {
-        color: element.hair.color,
-        type: element.hair.type,
-      },
+      image: element.image,
       // address
       address: {
         address: element.address.address,
@@ -79,9 +76,7 @@ getData().then((data) => {
     });
     // used to display the repeatedly
   });
-
   UsersData.map((e) => {
-    console.log(e);
     displayUsers(e);
   });
 });
@@ -90,19 +85,19 @@ function displayUsers(element) {
   statment += `<div class="accordion-item">
         <h2 class="accordion-header">
           <button
-            class="accordion-button"
+            class="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse${element.id}"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="collapse${element.id}"
           >
-            ${element.firstName}
+           ${element.firstName}
           </button>
         </h2>
         <div
           id="collapse${element.id}"
-          class="accordion-collapse collapse show"
+          class="accordion-collapse collapse"
           data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">
@@ -111,16 +106,18 @@ function displayUsers(element) {
 
                     <div class="container rounded bg-white ">
       <div class="row">
-        <div class="col-md-3 border-right">
+        <div class="col-lg-3 col-md-12 border-right">
           <div
             class="d-flex flex-column align-items-center text-center p-3 py-5"
           >
             <img
               class="rounded-circle mt-5"
               width="150px"
-              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-            /><span class="font-weight-bold name">Edogaru</span
-            ><span class="text-black-50 email">edogaru@mail.com.my</span>
+              src="${element.image}"
+            /><span class="font-weight-bold name">${
+              element.firstName + " " + element.lastName
+            }</span
+            ><span class="text-black-50 email">${element.email}</span>
           </div>
         </div>
         <div class="col-md-5 border-right">
@@ -135,28 +132,28 @@ function displayUsers(element) {
             </div>
             <div class="row mt-3">
               <div class="col-md-12">
-                <p><strong>UserName:</strong> dummy</p>
+                <p><strong>UserName:</strong> ${element.username}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Phone:</strong> 0332-6067339</p>
+                <p><strong>Phone:</strong> ${element.phone}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Age:</strong> 28</p>
+                <p><strong>Age:</strong> ${element.age}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Birth Date:</strong> 12-March-2002</p>
+                <p><strong>Birth Date:</strong> ${element.birthDate}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Gender:</strong> ${element.gender}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Blood Group:</strong> A+</p>
+                <p><strong>Blood Group:</strong> ${element.bloodGroup}</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Height:</strong> 193.23 cm</p>
+                <p><strong>Height:</strong> ${element.height} cm</p>
               </div>
               <div class="col-md-12">
-                <p><strong>Height:</strong> 63 kg</p>
+                <p><strong>Height:</strong> ${element.weight} kg</p>
               </div>
             </div>
             <div class="row mt-5">
@@ -164,10 +161,10 @@ function displayUsers(element) {
                 <h2>Address Details:</h2>
               </div>
               <div class="col-md-6">
-                <p><strong>Street:</strong> Lorem ipsum dolor sit.</p>
-                <p><strong>City:</strong> LA</p>
-                <p><strong>State:</strong> LA</p>
-                <p><strong>Country:</strong> Usa</p>
+                <p><strong>Street:</strong> ${element.address.address}</p>
+                <p><strong>City:</strong> ${element.address.city}</p>
+                <p><strong>State:</strong> ${element.address.state}</p>
+                <p><strong>Country:</strong> ${element.address.country}</p>
               </div>
             </div>
           </div>
@@ -181,19 +178,19 @@ function displayUsers(element) {
             </div>
             <br />
             <div class="col-md-12">
-              <p><strong>Card Type:</strong> Usa</p>
+              <p><strong>Card Type:</strong> ${element.bank.cardType}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Card Number:</strong> Usa</p>
+              <p><strong>Card Number:</strong> ${element.bank.cardNumber}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Card Expiry:</strong> Usa</p>
+              <p><strong>Card Expiry:</strong> ${element.bank.cardExpire}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>IBAN:</strong> Usa</p>
+              <p><strong>IBAN:</strong> ${element.bank.iban}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Currency:</strong> Usa</p>
+              <p><strong>Currency:</strong> ${element.bank.currency}</p>
             </div>
           </div>
           <div>
@@ -204,19 +201,27 @@ function displayUsers(element) {
             </div>
             <br />
             <div class="col-md-12">
-              <p><strong>Company Name :</strong> Usa</p>
+              <p><strong>Company Name :</strong> ${element.company.name}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Department:</strong> Usa</p>
+              <p><strong>Department:</strong> ${element.company.department}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Title:</strong> Usa</p>
+              <p><strong>Title:</strong> ${element.company.title}</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Company Address:</strong> Usa</p>
+              <p><strong>Company Address:</strong> ${
+                element.company.address.address +
+                ", " +
+                element.company.address.city +
+                ", " +
+                element.company.address.state +
+                ", " +
+                element.company.address.country
+              }</p>
             </div>
             <div class="col-md-12">
-              <p><strong>Role:</strong> Usa</p>
+              <p><strong>Role:</strong> ${element.role}</p>
             </div>
           </div>
           <div class="py-5">
@@ -227,7 +232,7 @@ function displayUsers(element) {
             </div>
             <br />
             <div class="col-md-12">
-              <p><strong>University :</strong> Usa</p>
+              <p><strong>University :</strong> ${element.university}</p>
             </div>
           </div>
         </div>
