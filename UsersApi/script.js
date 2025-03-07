@@ -11,13 +11,17 @@ async function getData() {
   }
 }
 
-getData().then((data) => {
-  let usersArr = data.users;
-  usersArr.forEach((element) => {
-    console.log(element);
-    displayUsers(element);
+getData()
+  .then((data) => {
+    let usersArr = data.users;
+    usersArr.forEach((element) => {
+      console.log(element);
+      displayUsers(element);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
   });
-});
 
 function displayUsers(element) {
   statment += `<div class="accordion-item">
@@ -26,15 +30,15 @@ function displayUsers(element) {
             class="accordion-button"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
+            data-bs-target="#collapse${element.id}"
             aria-expanded="true"
-            aria-controls="collapseOne"
+            aria-controls="collapse${element.id}"
           >
             ${element.firstName}
           </button>
         </h2>
         <div
-          id="collapseOne"
+          id="collapse${element.id}"
           class="accordion-collapse collapse show"
           data-bs-parent="#accordionExample"
         >
